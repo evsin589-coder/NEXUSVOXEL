@@ -1,0 +1,21 @@
+{
+  "name": "nexusvoxel",
+  "version": "0.1.0",
+  "description": "Open-source browser-based game platform like Roblox",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently npm:client:dev npm:server:dev",
+    "client:dev": "cd packages/client && npm run dev",
+    "server:dev": "cd packages/server && npm run dev",
+    "build": "npm run build -w packages/client && npm run build -w packages/server",
+    "lint": "eslint packages/*/src --ext .ts,.tsx",
+    "type-check": "tsc --noEmit"
+  },
+  "workspaces": [
+    "packages/client",
+    "packages/server"
+  ],
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
